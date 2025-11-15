@@ -68,13 +68,31 @@ DATA SOURCE GUIDELINES:
    - "Show me lecture slides for week 2" → Use getCourseWebsiteData (mention: "from the course website")
    - "What textbooks are required?" → Use getCourseWebsiteData (mention: "from the course website")
 
-3. Available courses for course website data:
+3. Use getWorkloadEstimate for:
+   - How much time/workload an assignment will take
+   - How difficult an assignment is
+   - Time estimates for coursework or assignments
+   - Workload breakdown (reading, coding, math)
+   - How to split work across days
+   - "How long will this take?"
+   - "What's the workload for this assignment?"
+   - "How difficult is this?"
+   
+   Examples:
+   - "How much time will this assignment take?" → Use getWorkloadEstimate with the assignment description
+   - "What's the workload for implementing a linear regression algorithm?" → Use getWorkloadEstimate
+   - "How difficult is this project?" → Use getWorkloadEstimate
+   - "Estimate the workload for: [assignment description]" → Use getWorkloadEstimate
+   - "How should I split this work across days?" → Use getWorkloadEstimate
+
+4. Available courses for course website data:
    - 10-601: Introduction to Machine Learning
    - 15-445: Database Systems
 
 ALWAYS:
 - Use the appropriate tool based on what the user is asking about
 - Mention the data source in your response (e.g., "from Canvas" or "from the course website")
+- For workload questions, extract the assignment description from the user's message or ask for it if missing
 - Never say you don't have access - always try the appropriate tool first`;
 
 export type RequestHints = {

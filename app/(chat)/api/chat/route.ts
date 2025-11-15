@@ -26,6 +26,7 @@ import { createDocument } from "@/lib/ai/tools/create-document";
 import { getCanvasData } from "@/lib/ai/tools/get-canvas-data";
 import { getCourseWebsiteData } from "@/lib/ai/tools/get-course-website-data";
 import { getWeather } from "@/lib/ai/tools/get-weather";
+import { getWorkloadEstimate } from "@/lib/ai/tools/get-workload-estimate";
 import { requestSuggestions } from "@/lib/ai/tools/request-suggestions";
 import { updateDocument } from "@/lib/ai/tools/update-document";
 import { isProductionEnvironment } from "@/lib/constants";
@@ -193,6 +194,7 @@ export async function POST(request: Request) {
                   "getWeather",
                   "getCanvasData",
                   "getCourseWebsiteData",
+                  "getWorkloadEstimate",
                   "createDocument",
                   "updateDocument",
                   "requestSuggestions",
@@ -202,6 +204,7 @@ export async function POST(request: Request) {
             getWeather,
             getCanvasData: getCanvasData({ session }),
             getCourseWebsiteData: getCourseWebsiteData({ session }),
+            getWorkloadEstimate: getWorkloadEstimate({ session }),
             createDocument: createDocument({ session, dataStream }),
             updateDocument: updateDocument({ session, dataStream }),
             requestSuggestions: requestSuggestions({

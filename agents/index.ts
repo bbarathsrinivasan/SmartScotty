@@ -25,7 +25,11 @@ export type {
 	CourseWebsiteCrawlerOutput,
 } from "./course-website-crawler-agent";
 
-export { WorkloadEstimatorAgent } from "./workload-estimator-agent";
+export {
+	WorkloadEstimatorAgent,
+	estimate,
+	testWorkloadEstimator,
+} from "./workload-estimator-agent";
 export type {
 	WorkloadEstimatorInput,
 	WorkloadEstimatorOutput,
