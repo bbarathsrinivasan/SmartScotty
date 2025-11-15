@@ -6,6 +6,7 @@ import type { getCanvasData } from "./ai/tools/get-canvas-data";
 import type { getCourseWebsiteData } from "./ai/tools/get-course-website-data";
 import type { getPrioritization } from "./ai/tools/get-prioritization";
 import type { getStudyPlan } from "./ai/tools/get-study-plan";
+import type { getLearningGuidance } from "./ai/tools/get-learning-guidance";
 import type { getWeather } from "./ai/tools/get-weather";
 import type { getWorkloadEstimate } from "./ai/tools/get-workload-estimate";
 import type { requestSuggestions } from "./ai/tools/request-suggestions";
@@ -33,6 +34,7 @@ type getPrioritizationTool = InferUITool<
   ReturnType<typeof getPrioritization>
 >;
 type getStudyPlanTool = InferUITool<ReturnType<typeof getStudyPlan>>;
+type getLearningGuidanceTool = InferUITool<ReturnType<typeof getLearningGuidance>>;
 type createDocumentTool = InferUITool<ReturnType<typeof createDocument>>;
 type updateDocumentTool = InferUITool<ReturnType<typeof updateDocument>>;
 type requestSuggestionsTool = InferUITool<
@@ -46,6 +48,7 @@ export type ChatTools = {
   getWorkloadEstimate: getWorkloadEstimateTool;
   getPrioritization: getPrioritizationTool;
   getStudyPlan: getStudyPlanTool;
+  getLearningGuidance: getLearningGuidanceTool;
   createDocument: createDocumentTool;
   updateDocument: updateDocumentTool;
   requestSuggestions: requestSuggestionsTool;

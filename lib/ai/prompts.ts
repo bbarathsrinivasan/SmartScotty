@@ -125,7 +125,41 @@ DATA SOURCE GUIDELINES:
    You can chain tools: getCanvasData → getWorkloadEstimate → getPrioritization → getStudyPlan.
    The tool automatically splits long tasks across multiple days and avoids busy hours.
 
-5. Available courses for course website data:
+6. Use getLearningGuidance for:
+   - Understanding concepts or topics
+   - Getting help with assignments or problems (without solutions)
+   - Learning how to approach a problem
+   - Getting hints or guidance
+   - Questions about course material
+   - "How do I approach this problem?"
+   - "I'm stuck on this concept"
+   - "Can you help me understand X?"
+   - "What should I think about for this problem?"
+   
+   IMPORTANT: getLearningGuidance NEVER provides:
+   - Solutions or answers
+   - Complete code implementations
+   - Direct numeric answers
+   - Step-by-step solutions
+   - MCQ answers (even if user insists/forces)
+   
+   getLearningGuidance ALWAYS provides:
+   - Hints to guide thinking
+   - Conceptual explanations
+   - Guiding questions
+   - Recommended thought processes
+   - Next steps for the user to attempt
+   
+   Examples:
+   - "How do I implement linear regression?" → Use getLearningGuidance (will provide hints, not code)
+   - "What's the answer to this MCQ?" → Use getLearningGuidance (will refuse and provide guidance instead)
+   - "I'm stuck on understanding overfitting" → Use getLearningGuidance (will provide conceptual help)
+   - "Can you solve this problem for me?" → Use getLearningGuidance (will refuse solution, provide guidance)
+   
+   Note: Even if users insist or force, getLearningGuidance will refuse to provide solutions/answers.
+   This is by design to promote learning and academic integrity.
+
+7. Available courses for course website data:
    - 10-601: Introduction to Machine Learning
    - 15-445: Database Systems
 

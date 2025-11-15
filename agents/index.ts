@@ -69,8 +69,18 @@ export type {
 	MeetingCoordinatorOutput,
 } from "./meeting-coordinator-agent";
 
-export { LearningAgent } from "./learning-agent";
-export type { LearningAgentInput, LearningAgentOutput } from "./learning-agent";
+export {
+	LearningAgent,
+	guide,
+	testLearningAgent,
+} from "./learning-agent";
+export type {
+	LearningAgentInput,
+	LearningAgentOutput,
+	CourseContextType,
+} from "./learning-agent";
+export { mockAssignments, getMockAssignments } from "./mock-assignments";
+export type { MockAssignment, AssignmentType, CourseContext } from "./mock-assignments";
 
 export { SafetySupervisorAgent } from "./safety-supervisor-agent";
 export type {
