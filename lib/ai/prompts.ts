@@ -85,7 +85,47 @@ DATA SOURCE GUIDELINES:
    - "Estimate the workload for: [assignment description]" → Use getWorkloadEstimate
    - "How should I split this work across days?" → Use getWorkloadEstimate
 
-4. Available courses for course website data:
+4. Use getPrioritization for:
+   - Which tasks to do first
+   - Prioritizing assignments or coursework
+   - What to work on next
+   - Ranking tasks by priority
+   - "What should I prioritize?"
+   - "Which assignment should I do first?"
+   - "Help me prioritize my tasks"
+   
+   Examples:
+   - "Which assignment should I do first?" → Use getPrioritization with list of tasks (from Canvas or user-provided)
+   - "Help me prioritize these tasks" → Use getPrioritization
+   - "What should I work on next?" → Use getPrioritization
+   - "Rank my assignments by priority" → Use getPrioritization
+   
+   Note: For getPrioritization, you need tasks with deadline, estimated_hours, and difficulty_score.
+   You can get assignments from Canvas using getCanvasData, then estimate workload using getWorkloadEstimate,
+   and finally prioritize using getPrioritization.
+
+5. Use getStudyPlan for:
+   - Creating study schedules or plans
+   - Planning when to study for assignments
+   - Scheduling study time for tasks
+   - Weekly or daily study plans
+   - "Create a study schedule for my assignments"
+   - "Plan my study time"
+   - "When should I study for these tasks?"
+   - "Help me schedule my assignments"
+   - "Create a weekly study plan"
+   
+   Examples:
+   - "Create a study schedule for my assignments" → Use getStudyPlan with prioritized tasks (from getPrioritization)
+   - "Plan my study time for this week" → Use getStudyPlan
+   - "When should I study for these tasks?" → Use getStudyPlan
+   - "Help me schedule my assignments" → Use getStudyPlan
+   
+   Note: For getStudyPlan, you typically need prioritized tasks (from getPrioritization).
+   You can chain tools: getCanvasData → getWorkloadEstimate → getPrioritization → getStudyPlan.
+   The tool automatically splits long tasks across multiple days and avoids busy hours.
+
+5. Available courses for course website data:
    - 10-601: Introduction to Machine Learning
    - 15-445: Database Systems
 
@@ -93,6 +133,7 @@ ALWAYS:
 - Use the appropriate tool based on what the user is asking about
 - Mention the data source in your response (e.g., "from Canvas" or "from the course website")
 - For workload questions, extract the assignment description from the user's message or ask for it if missing
+- For prioritization, you may need to chain tools: getCanvasData → getWorkloadEstimate → getPrioritization
 - Never say you don't have access - always try the appropriate tool first`;
 
 export type RequestHints = {

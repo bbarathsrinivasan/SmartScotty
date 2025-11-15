@@ -35,11 +35,30 @@ export type {
 	WorkloadEstimatorOutput,
 } from "./workload-estimator-agent";
 
-export { PrioritizationAgent } from "./prioritization-agent";
-export type { PrioritizationInput, PrioritizationOutput } from "./prioritization-agent";
+export {
+	PrioritizationAgent,
+	prioritize,
+	testPrioritizationAgent,
+} from "./prioritization-agent";
+export type {
+	PrioritizationInput,
+	PrioritizationOutput,
+	PrioritizedTask,
+	TaskInput,
+} from "./prioritization-agent";
 
-export { StudyPlannerAgent } from "./study-planner-agent";
-export type { StudyPlannerInput, StudyPlannerOutput } from "./study-planner-agent";
+export {
+	StudyPlannerAgent,
+	generateDailyPlan,
+	generateWeeklyPlan,
+	testStudyPlannerAgent,
+} from "./study-planner-agent";
+export type {
+	StudyPlannerInput,
+	StudyPlannerOutput,
+	StudyBlock,
+	Availability,
+} from "./study-planner-agent";
 
 export { CalendarAgent } from "./calendar-agent";
 export type { CalendarAgentInput, CalendarAgentOutput } from "./calendar-agent";
