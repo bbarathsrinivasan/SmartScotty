@@ -10,6 +10,7 @@ This document contains example prompts for all integrated agents in TartanOptimu
 4. [PrioritizationAgent - Task Prioritization](#prioritizationagent---task-prioritization)
 5. [StudyPlannerAgent - Study Planning](#studyplanneragent---study-planning)
 6. [LearningAgent (Anti-AIV) - Educational Guidance](#learningagent-anti-aiv---educational-guidance)
+7. [SafetySupervisorAgent - Safety Supervision](#safetysupervisoragent---safety-supervision)
 
 ---
 
@@ -438,6 +439,65 @@ Get hints, conceptual explanations, and guidance while strictly refusing solutio
 
 ---
 
+## SafetySupervisorAgent - Safety Supervision
+
+Analyze responses for Anti-AIV violations and rewrite them into educational guidance.
+
+### Testing Safety Supervision
+
+106. **"Check if this response is safe: The solution is to use gradient descent. Step 1: Initialize weights. Step 2: Calculate gradient. The answer is option B."**
+    - Returns: Violation detected, rewritten into educational guidance
+
+107. **"Analyze this response for violations: Here's the complete code: [code block]"**
+    - Returns: Code violation detected, rewritten into hints
+
+108. **"Check this response: The correct answer is option A. In linear regression, the cost function always decreases."**
+    - Returns: Answer violation detected, rewritten into guidance
+
+109. **"Is this response safe? Think about what the cost function represents. Consider the learning rate."**
+    - Returns: No violations detected, adds guiding question if missing
+
+110. **"Rewrite this to be educational: Step 1: Calculate the mean. Step 2: Calculate the variance. Step 3: The result is 0.05"**
+    - Returns: Step-by-step and numeric violations detected, rewritten
+
+### Testing with LearningAgent Outputs
+
+111. **"I asked LearningAgent about linear regression and got this response: [response]. Check if it's safe."**
+    - Returns: Analyzes the response for violations
+
+112. **"Check this LearningAgent response for Anti-AIV violations: [response text]"**
+    - Returns: Detects and rewrites any violations
+
+113. **"Analyze this response from LearningAgent: The solution is option A. Here's the complete answer."**
+    - Returns: Detects violations, provides rewritten version
+
+### Testing Different Violation Types
+
+114. **"Check this response: The p-value is 0.0234. The exact value equals 0.0234."**
+    - Returns: Numeric answer violation detected
+
+115. **"Analyze this: Here's how to solve this problem step by step: Step 1: ... Step 2: ... Step 3: ..."**
+    - Returns: Step-by-step violation detected
+
+116. **"Check this code response: [complete Python function with implementation]"**
+    - Returns: Code violation detected
+
+117. **"Is this safe? The correct answer is option B. Option B is the right choice."**
+    - Returns: MCQ answer violation detected
+
+### Testing Safe Responses
+
+118. **"Check this response: Think about what the cost function represents. Consider how gradient descent uses the gradient."**
+    - Returns: No violations, may add guiding question
+
+119. **"Analyze this: Here are some hints: 1) Consider the learning rate 2) Think about convergence"**
+    - Returns: No violations, safe response
+
+120. **"Check if this is educational: What happens to the cost function as you iterate? How does the learning rate affect convergence?"**
+    - Returns: No violations, already has guiding questions
+
+---
+
 ## Quick Reference by Use Case
 
 ### When You Need Academic Information
@@ -453,6 +513,11 @@ Get hints, conceptual explanations, and guidance while strictly refusing solutio
 - Use **LearningAgent** prompts (70-99)
 - Remember: Never provides solutions, only guidance
 
+### When You Need Safety Checking
+- Use **SafetySupervisorAgent** prompts (106-120)
+- Check responses for violations
+- Rewrite violations into educational guidance
+
 ### When You Need Complete Workflows
 - Use **Tool Chaining** examples (100-105)
 
@@ -466,6 +531,7 @@ Get hints, conceptual explanations, and guidance while strictly refusing solutio
 - **PrioritizationAgent**: Calculates priority based on urgency, difficulty, and hours
 - **StudyPlannerAgent**: Automatically splits long tasks and avoids busy hours
 - **LearningAgent**: Strictly enforces Anti-AIV rules - never provides solutions, even if user insists
+- **SafetySupervisorAgent**: Monitors and enforces Anti-AIV rules on agent outputs, rewriting violations into educational guidance
 
 ---
 

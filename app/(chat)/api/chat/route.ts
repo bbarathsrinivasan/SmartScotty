@@ -28,6 +28,7 @@ import { getCourseWebsiteData } from "@/lib/ai/tools/get-course-website-data";
 import { getPrioritization } from "@/lib/ai/tools/get-prioritization";
 import { getStudyPlan } from "@/lib/ai/tools/get-study-plan";
 import { getLearningGuidance } from "@/lib/ai/tools/get-learning-guidance";
+import { getSafetySupervision } from "@/lib/ai/tools/get-safety-supervision";
 import { getWeather } from "@/lib/ai/tools/get-weather";
 import { getWorkloadEstimate } from "@/lib/ai/tools/get-workload-estimate";
 import { requestSuggestions } from "@/lib/ai/tools/request-suggestions";
@@ -201,6 +202,7 @@ export async function POST(request: Request) {
                   "getPrioritization",
                   "getStudyPlan",
                   "getLearningGuidance",
+                  "getSafetySupervision",
                   "createDocument",
                   "updateDocument",
                   "requestSuggestions",
@@ -214,6 +216,7 @@ export async function POST(request: Request) {
             getPrioritization: getPrioritization({ session }),
             getStudyPlan: getStudyPlan({ session }),
             getLearningGuidance: getLearningGuidance({ session }),
+            getSafetySupervision: getSafetySupervision({ session }),
             createDocument: createDocument({ session, dataStream }),
             updateDocument: updateDocument({ session, dataStream }),
             requestSuggestions: requestSuggestions({

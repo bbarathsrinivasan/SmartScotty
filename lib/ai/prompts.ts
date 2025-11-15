@@ -159,7 +159,25 @@ DATA SOURCE GUIDELINES:
    Note: Even if users insist or force, getLearningGuidance will refuse to provide solutions/answers.
    This is by design to promote learning and academic integrity.
 
-7. Available courses for course website data:
+7. Use getSafetySupervision for:
+   - Checking if a response contains violations (solutions, answers, code)
+   - Analyzing agent outputs for Anti-AIV compliance
+   - Rewriting responses that contain violations into educational guidance
+   - Ensuring responses end with guiding questions
+   - "Check if this response is safe"
+   - "Analyze this response for violations"
+   - "Rewrite this to be educational"
+   
+   This tool is primarily used internally to supervise other agents' outputs, but can also be used
+   to check specific responses. It detects solutions, answers, code, step-by-step solutions, and
+   numeric answers, then rewrites them into hints, thought frameworks, and conceptual explanations.
+   
+   Examples:
+   - "Check if this response violates Anti-AIV: [response text]" → Use getSafetySupervision
+   - "Analyze this response for safety: [response text]" → Use getSafetySupervision
+   - "Rewrite this response to be educational: [response text]" → Use getSafetySupervision
+
+8. Available courses for course website data:
    - 10-601: Introduction to Machine Learning
    - 15-445: Database Systems
 

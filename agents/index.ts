@@ -82,7 +82,11 @@ export type {
 export { mockAssignments, getMockAssignments } from "./mock-assignments";
 export type { MockAssignment, AssignmentType, CourseContext } from "./mock-assignments";
 
-export { SafetySupervisorAgent } from "./safety-supervisor-agent";
+export {
+	SafetySupervisorAgent,
+	enforce,
+	testSafetyAgent,
+} from "./safety-supervisor-agent";
 export type {
 	SafetySupervisorInput,
 	SafetySupervisorOutput,
